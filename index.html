@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title> Β ❤️ Σ </title>
+<title>Σ ❤️ B</title>
 
 <style>
   * { box-sizing: border-box; }
 
+  /* Ρομαντική γραμματοσειρά */
   @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
   body {
@@ -22,30 +23,36 @@
     background: radial-gradient(circle at top, #ff7aa2, #d1004b 60%, #6a0025);
     color: white;
     text-align: center;
+    animation: fadeIn 2s ease forwards;
+    opacity: 0;
   }
+
+  @keyframes fadeIn { to { opacity: 1; } }
 
   .wrapper {
     width: 100%;
     max-width: 360px;
     padding: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
   }
 
   .photo {
     width: 100%;
-    max-height: 55vh;
-    margin-top: -20px;
+    max-height: 58vh;
+    margin-top: -10px;
     border-radius: 22px;
     object-fit: cover;
     box-shadow: 0 12px 35px rgba(0,0,0,0.45);
+    animation: slowZoom 12s ease-in-out infinite alternate;
+  }
+
+  @keyframes slowZoom {
+    from { transform: scale(1); }
+    to { transform: scale(1.05); }
   }
 
   .names {
-    margin-top: 16px;
-    font-size: 32px;
+    margin-top: 14px;
+    font-size: 30px;
     text-shadow: 0 4px 10px rgba(0,0,0,0.4);
   }
 
@@ -55,14 +62,10 @@
     opacity: 0.95;
   }
 
-  .music-btn {
-    margin-top: 14px;
-    padding: 10px 18px;
-    border: none;
-    border-radius: 14px;
-    background: rgba(255,255,255,0.18);
-    color: white;
+  .counter {
+    margin-top: 6px;
     font-size: 16px;
+    opacity: 0.9;
     font-family: Arial, sans-serif;
   }
 
@@ -77,43 +80,118 @@
   @keyframes rise {
     0% { transform: translateY(0) scale(0.8); opacity: 0; }
     10% { opacity: 1; }
-    100% { transform: translateY(-110vh) scale(1.25); opacity: 0; }
+    100% { transform: translateY(-110vh) scale(1.2); opacity: 0; }
+  }
+
+  .burst-heart {
+    position: fixed;
+    font-size: 20px;
+    pointer-events: none;
+    animation: burst 0.8s ease-out forwards;
+  }
+
+  @keyframes burst {
+    from { transform: scale(0.5); opacity: 1; }
+    to { transform: scale(1.8) translateY(-40px); opacity: 0; }
+  }
+
+  .music-btn {
+    margin-top: 14px;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.18);
+    color: white;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+  }
+
+  .install-banner {
+    position: fixed;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.6);
+    padding: 10px 16px;
+    border-radius: 14px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    display: none;
   }
 </style>
 </head>
 
 <body>
   <div class="wrapper">
-    <img src="imgVS.jpg" class="photo" />
+    <img src="imgSF.jpg" class="photo" />
 
-    <div class="names"> B ❤️ Σ </div>
+    <div class="names">Σ ❤️ B</div>
     <div class="date">30/07/2025</div>
 
-    <button class="music-btn" onclick="playMusic()">🎵 Πάτα να παίξει 🎵 </button>
+    <div class="counter" id="daysTogether"></div>
+
+    <button class="music-btn" onclick="playMusic()">🎵 Πάτα το να παίξει 🎵</button>
   </div>
 
-  <!-- Διπλάσιες κινούμενες καρδιές -->
+  <!-- Διασκορπισμένες καρδιές -->
   <div class="heart" style="left:5%; animation-duration:7s;">❤️</div>
-  <div class="heart" style="left:12%; animation-duration:9s;">💖</div>
-  <div class="heart" style="left:20%; animation-duration:8s;">💕</div>
-  <div class="heart" style="left:28%; animation-duration:10s;">💗</div>
-  <div class="heart" style="left:36%; animation-duration:7.5s;">💓</div>
-  <div class="heart" style="left:44%; animation-duration:9.5s;">💞</div>
-  <div class="heart" style="left:55%; animation-duration:8.2s;">❤️</div>
-  <div class="heart" style="left:63%; animation-duration:10.5s;">💖</div>
-  <div class="heart" style="left:71%; animation-duration:7.8s;">💕</div>
-  <div class="heart" style="left:79%; animation-duration:9.2s;">💗</div>
-  <div class="heart" style="left:87%; animation-duration:8.7s;">💓</div>
-  <div class="heart" style="left:94%; animation-duration:10.2s;">💞</div>
+  <div class="heart" style="left:18%; animation-duration:9s;">💖</div>
+  <div class="heart" style="left:33%; animation-duration:8s;">💕</div>
+  <div class="heart" style="left:47%; animation-duration:10s;">💗</div>
+  <div class="heart" style="left:59%; animation-duration:7.5s;">💓</div>
+  <div class="heart" style="left:72%; animation-duration:9.5s;">💞</div>
+  <div class="heart" style="left:84%; animation-duration:8.5s;">❤️</div>
+  <div class="heart" style="left:92%; animation-duration:11s;">💖</div>
+
+  <div class="install-banner" id="installBanner">📱 Πρόσθεσέ το στην αρχική οθόνη</div>
 
   <audio id="bgMusic" loop>
-    <source src="ka8emera.mp3" type="audio/mpeg" />
+    <source src="Iliaxtida.mp3" type="audio/mpeg" />
   </audio>
 
   <script>
     function playMusic() {
       document.getElementById('bgMusic').play();
     }
+
+    // Μετρητής ημερών σχέσης
+    const startDate = new Date('2025-10-01');
+    const today = new Date();
+    const diffTime = today - startDate;
+    const days = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    if (days >= 0) {
+      document.getElementById('daysTogether').innerText = `Μαζί για ${days} μέρες ❤️`;
+    }
+
+    // Hearts burst on touch
+    document.addEventListener('click', (e) => {
+      for (let i = 0; i < 6; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'burst-heart';
+        heart.innerText = '❤️';
+        heart.style.left = e.clientX + (Math.random()*40-20) + 'px';
+        heart.style.top = e.clientY + (Math.random()*40-20) + 'px';
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 800);
+      }
+    });
+
+    // Add to Home Screen banner
+    let deferredPrompt;
+    const banner = document.getElementById('installBanner');
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      banner.style.display = 'block';
+
+      banner.addEventListener('click', async () => {
+        banner.style.display = 'none';
+        deferredPrompt.prompt();
+        await deferredPrompt.userChoice;
+        deferredPrompt = null;
+      });
+    });
   </script>
 </body>
 </html>
