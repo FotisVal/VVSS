@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title> Β ❤️ Σ </title>
+
+<style>
+  * { box-sizing: border-box; }
+
+  @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    font-family: 'Great Vibes', cursive;
+
+    background: radial-gradient(circle at top, #ff7aa2, #d1004b 60%, #6a0025);
+    color: white;
+    text-align: center;
+  }
+
+  .wrapper {
+    width: 100%;
+    max-width: 360px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .photo {
+    width: 100%;
+    max-height: 55vh;
+    margin-top: -20px;
+    border-radius: 22px;
+    object-fit: cover;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.45);
+  }
+
+  .names {
+    margin-top: 16px;
+    font-size: 32px;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  }
+
+  .date {
+    margin-top: 6px;
+    font-size: 18px;
+    opacity: 0.95;
+  }
+
+  .music-btn {
+    margin-top: 14px;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.18);
+    color: white;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+  }
+
+  .heart {
+    position: fixed;
+    bottom: -20px;
+    font-size: 18px;
+    animation: rise linear infinite;
+    pointer-events: none;
+  }
+
+  @keyframes rise {
+    0% { transform: translateY(0) scale(0.8); opacity: 0; }
+    10% { opacity: 1; }
+    100% { transform: translateY(-110vh) scale(1.25); opacity: 0; }
+  }
+</style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <img src="imgVF.jpg" class="photo" />
+
+    <div class="names"> B ❤️ Σ </div>
+    <div class="date">30/07/2025</div>
+
+    <button class="music-btn" onclick="playMusic()">🎵 Πάτα να παίξει 🎵 </button>
+  </div>
+
+  <!-- Διπλάσιες κινούμενες καρδιές -->
+  <div class="heart" style="left:5%; animation-duration:7s;">❤️</div>
+  <div class="heart" style="left:12%; animation-duration:9s;">💖</div>
+  <div class="heart" style="left:20%; animation-duration:8s;">💕</div>
+  <div class="heart" style="left:28%; animation-duration:10s;">💗</div>
+  <div class="heart" style="left:36%; animation-duration:7.5s;">💓</div>
+  <div class="heart" style="left:44%; animation-duration:9.5s;">💞</div>
+  <div class="heart" style="left:55%; animation-duration:8.2s;">❤️</div>
+  <div class="heart" style="left:63%; animation-duration:10.5s;">💖</div>
+  <div class="heart" style="left:71%; animation-duration:7.8s;">💕</div>
+  <div class="heart" style="left:79%; animation-duration:9.2s;">💗</div>
+  <div class="heart" style="left:87%; animation-duration:8.7s;">💓</div>
+  <div class="heart" style="left:94%; animation-duration:10.2s;">💞</div>
+
+  <audio id="bgMusic" loop>
+    <source src="ka8emera.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script>
+    function playMusic() {
+      document.getElementById('bgMusic').play();
+    }
+  </script>
+</body>
+</html>
